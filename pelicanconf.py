@@ -1,9 +1,9 @@
-AUTHOR = 'Raja CSP Raman'
-SITENAME = 'RajaCSP'
-SITETITLE = 'RajaCSP'
+AUTHOR = 'Hema Varshini'
+SITENAME = 'Hema Varshini'
+SITETITLE = 'Hema Varshini'
 SITEURL = ""
 PATH = "content"
-TIMEZONE = 'America/Moncton'
+TIMEZONE = 'Asia/Kolkata'
 DEFAULT_LANG = 'en'
 THEME = 'theme'
 
@@ -12,7 +12,7 @@ DISABLE_URL_HASH = True
 
 # Copyright
 COPYRIGHT_YEAR = 2026
-COPYRIGHT_NAME = 'Raja CSP Raman'
+COPYRIGHT_NAME = 'Hema Varshini'
 
 # Dark mode support
 THEME_COLOR_AUTO_DETECT_BROWSER_PREFERENCE = True
@@ -24,7 +24,7 @@ PYGMENTS_STYLE_DARK = 'native'  # Dark mode
 
 # Static files
 STATIC_PATHS = ['images']
-SITELOGO = '/images/csp.jpeg'
+SITELOGO = '/images/hemavarshini.jpeg'
 
 # Feed generation is usually not desired when developing
 FEED_ALL_ATOM = None
@@ -38,8 +38,8 @@ DISPLAY_PAGES_ON_MENU = True
 
 # Social widget
 SOCIAL = (
-    ("github", "https://github.com/rajacsp"),
-    ("linkedin", "https://www.linkedin.com/in/raja-csp-raman/"),
+    ("github", "https://github.com/hemavarshini-mangai"),
+    ("linkedin", "https://www.linkedin.com/in/hema-varshini-vinoba/"),
     ("substack", "https://articlevil.substack.com/"),
     ("python", "https://rajacsp.github.io/mlnotes/"),
 )
