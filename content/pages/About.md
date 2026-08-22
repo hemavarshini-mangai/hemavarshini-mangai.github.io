@@ -1,42 +1,37 @@
 Title: About
-Date: 2026-01-10
+Date: 2026-08-21
 
 # About the Blog
 
-This blog is about GenAI, LLMs, machine learning, Python, and tech education. I write about what I'm learning, building, and experimenting with in the world of Generative AI. I'm not a professional writer, but the more I write, the better I get.
+This space is where I share my journey as a student, learner, and aspiring technology professional. Through this blog, I want to document what I learn, the projects I work on, the challenges I face, and the experiences that shape me. My goal is not just to showcase what I know, but also to share my learning process and inspire others who are beginning their own journey in technology.
 
 # About Me
 
-I'm **Raja CSP Raman** — an engineer, educator, author, and founder.
+I'm **Hema Varshini** — a CSE student, GenAI intern, Python enthusiast, and passionate problem solver.
 
-From a rural school in Odiapatti to a career spanning multiple continents, my journey has been driven by curiosity and a deep commitment to giving back. I'm an alumnus of **Thiagarajar College of Engineering** and started my career working alongside IIT Madras professors at **NMSWorks** (a parent company of Zoho).
+I am a Computer Science Engineering student in **K. Ramakrishnan College Of Engineering** with a strong interest in technology, programming, and innovation. I consider myself an eager learner who enjoys exploring new concepts and turning ideas into practical solutions. I am particularly interested in Python, Artificial Intelligence, and Generative AI. 
 
-I moved to Canada in 2010 and studied at **Humber Institute of Technology** in Toronto. Over 13 years in Ontario, I built a career working with American and European clients across diverse tech domains — from ticketing systems to retail and gaming technology.
+I believe that continuous learning, good communication, creativity, and the willingness to experiment are essential for growing in the tech field. I always try to approach things differently and bring a unique perspective to whatever I work on.
 
-Throughout my career, I've dedicated my weekends to mentoring students from rural backgrounds, teaching them cutting-edge technologies through one-on-one sessions. The impact: **442 students** have secured their first jobs through my guidance, with over **30 of them** now earning more than ₹20 lakhs annually.
+I'm someone who likes to stand out, not for the sake of attention, but because I genuinely believe there's value in doing things differently.
 
 ## Current Work
 
-I'm the founder of **[Kactii](https://app.kactii.com/c/raja)** — a GenAI Agent Marketplace. I also operate **Kactii Academy** from Toronto, focusing on nurturing both Canadians and South Indians in the latest GenAI technology stack. Previously, I led **Aracor** as Head of AI & Engineering, where I managed an 11-member team and initiated the AI roadmap for AracorAI.
+Currently, I am working as a **GenAI Intern at KACTII**, where I am gaining practical exposure to Generative AI and its applications. I enjoy building projects that combine technology with real-world problems and exploring how AI can be used to create useful and innovative solutions. 
 
-I'm also the founder of **Featurepreneur**, an invitation-only Slack community focused on student development, supporting Canadian SMEs and startups on their micro features.
+Every project and learning experience helps me improve both technically and personally. It's been an exciting space to be in — Generative AI is moving fast, and getting hands-on exposure to it this early in my journey has taught me more in a few months than I expected. 
 
-My ambitious 10-year mission is to establish **Tamil Nadu as the GenAI Hub of India**, a vision I'm actively pursuing through collaborations with engineering colleges across Tamil Nadu.
-
-## Publications & Open Source
-
-- Author of **"Building RESTful Web Services with Spring 5"**
-- Published **8 research papers** on Arxiv, with collaborative student efforts
-- PyPI / FOSS contributions: **Agentic Optio** (lightweight LangChain alternate), **TokSum** (GenAI token counter), **Tamil Tokenizer**
+Balancing coursework with an internship isn't always easy, but it's given me a real taste of what it's like to apply classroom concepts to actual problems, and it's fueled my curiosity to dig deeper into the field.
 
 ## Links
 
-- [LinkedIn](https://www.linkedin.com/in/raja-csp-raman/)
-- [GitHub](https://github.com/rajacsp)
-- [PyPI](https://pypi.org/user/rajacsp/)
-- [Google Scholar](https://scholar.google.com/citations?user=rajacsp)
-- [Kactii](https://app.kactii.com/c/raja)
+- [LinkedIn](https://www.linkedin.com/in/hema-varshini-vinoba/)
+- [GitHub](https://github.com/hemavarshini-mangai)
+- [Substack](https://articlevil.substack.com/)
 
 ## Outside of Tech
+ 
+I believe that experiences outside academics and technology help us become more confident, adaptable, and well-rounded individuals. For me, maintaining a balance between learning, creativity, and enjoying life makes the journey more meaningful.
 
-When I'm not shaping the future of tech education, you might find me unwinding with a John Grisham novel.
+I'm also actively involved in the **Master of Ceremonies (MC) Desk**, where I have the opportunity to host events, engage with diverse audiences, and manage on-stage responsibilities with confidence and professionalism. This experience has strengthened my communication, public speaking, and spontaneous decision-making skills, while allowing me to complement my technical expertise with strong interpersonal and leadership abilities.
+

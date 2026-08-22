@@ -40,8 +40,7 @@ DISPLAY_PAGES_ON_MENU = True
 SOCIAL = (
     ("github", "https://github.com/hemavarshini-mangai"),
     ("linkedin", "https://www.linkedin.com/in/hema-varshini-vinoba/"),
-    ("substack", "https://articlevil.substack.com/"),
-    ("python", "https://rajacsp.github.io/mlnotes/"),
+    ("substack", "https://articlevil.substack.com//")
 )
 
 DEFAULT_PAGINATION = 10
