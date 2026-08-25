@@ -1,7 +1,7 @@
 Title: Llama.cpp for Beginners: Understanding Your Server Logs
 Date: 2026-08-24
-Category: 
-Tags: 
+Category: Machine Learning
+Tags: llama.cpp, LLM, self-hosting, server-logs, debugging, local-inference, beginners-guide, open-source-ai
 Slug: Llama.cpp-for-Beginners:-Understanding-Your-Server-Logs
 ------------
 A SAMPLE LOG
