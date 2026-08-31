@@ -1,8 +1,8 @@
-# rajacsp.github.io
+# hemavarshini-mangai.github.io
 
-Personal blog built with [Pelican](https://getpelican.com/) and deployed to GitHub Pages via GitHub Actions.
+Personal blog and portfolio website built with [Pelican](https://getpelican.com/) and deployed to GitHub Pages via GitHub Actions.
 
-🔗 **Live site:** [https://rajacsp.github.io](https://rajacsp.github.io)
+🔗 **Live site:** https://hemavarshini-mangai.github.io
 
 ## Setup
 
@@ -16,7 +16,7 @@ pip install -r requirements.txt
 make devserver
 ```
 
-Serves the site locally with auto-reload.
+Serves the site locally with auto-reload for development and testing.
 
 ## Build for Production
 
@@ -24,7 +24,7 @@ Serves the site locally with auto-reload.
 make publish
 ```
 
-Generates the site using `publishconf.py` into the `output/` directory.
+Generates the production-ready site using `publishconf.py` into the `output/` directory.
 
 ## Deployment
 
@@ -32,15 +32,28 @@ Pushes to `main` automatically trigger a GitHub Actions workflow that builds and
 
 ## Project Structure
 
-```
+```text
 content/          # Blog posts and pages (Markdown)
 content/images/   # Static images
-content/pages/    # Static pages (e.g., About)
-theme/            # Custom Pelican theme (Flex-based)
-pelicanconf.py    # Development config
-publishconf.py    # Production config
+content/pages/    # Static pages such as About
+theme/            # Custom Pelican theme
+pelicanconf.py    # Development configuration
+publishconf.py    # Production configuration
+requirements.txt  # Python dependencies
+Makefile          # Development and build commands
+.github/workflows/ # GitHub Actions deployment workflow
 ```
 
+## About
 
-## Screenshots
-![1775872959937](image/README/1775872959937.png)
+This is my personal blog where I share my learning journey, projects, experiences, and insights in technology, Generative AI, programming, and software development.
+
+## Technologies
+
+* Python
+* Pelican
+* Markdown
+* HTML/CSS
+* Git & GitHub
+* GitHub Pages
+* GitHub Actions
