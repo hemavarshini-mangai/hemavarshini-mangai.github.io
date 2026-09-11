@@ -4,7 +4,7 @@ Category: GenAI
 Tags: GenAI, ReAct, ReActAgents, AI-agents, AgenticAI, LLM, LargeLanguageModels, Reasoning, ToolCalling, FunctionCalling, AIPlanning, AgentArchitecture, DecisionMaking, RAG, AIEngineering, AutonomousAgents, GenerativeAI
 Slug: ReAct-Agents-Reasoning-and-Acting-Together
 
-**## Introduction**
+## Introduction
 
 Large Language Models (LLMs) can answer questions, generate code, summarize information, and explain complex topics.
 
@@ -88,11 +88,11 @@ A ReAct agent can decide when one of these actions is required instead of trying
 
 **------------**
 
-**## How ReAct Works**
+## How ReAct Works
 
 The ReAct approach follows an iterative loop.
 
-**### 1. Reason**
+### 1. Reason
 
 The agent understands the request and determines what needs to be done.
 
@@ -107,7 +107,7 @@ Current information is required.
 I should use a price API.
 ```
 
-**### 2. Act**
+### 2. Act
 
 The agent selects and calls an appropriate tool.
 
@@ -115,7 +115,7 @@ The agent selects and calls an appropriate tool.
 get_crypto_price("BTC", "USD")
 ```
 
-**### 3. Observe**
+### 3. Observe
 
 The tool returns information.
 
@@ -123,7 +123,7 @@ The tool returns information.
 BTC = $108,500
 ```
 
-**### 4. Reason Again**
+### 4. Reason Again
 
 The agent evaluates the result and decides whether more actions are required.
 
@@ -147,7 +147,7 @@ This loop can continue until the task is completed.
 
 **------------**
 
-**## ReAct and Tool Calling**
+## ReAct and Tool Calling
 
 Tool calling allows an LLM to interact with external functions.
 
@@ -193,7 +193,7 @@ The agent determines which tool is appropriate for the current task.
 
 **------------**
 
-**## ReAct with RAG**
+## ReAct with RAG
 
 ReAct can also work with Retrieval-Augmented Generation (RAG).
 
@@ -223,7 +223,7 @@ This helps the agent provide answers based on current, external information.
 
 **------------**
 
-**## Example: Coding Agent**
+## Example: Coding Agent
 
 Consider a developer asking:
 
@@ -257,7 +257,7 @@ The agent is not simply generating code. It can **inspect, act, test, observe, a
 
 **------------**
 
-**## ReAct vs Traditional Chatbots**
+## ReAct vs Traditional Chatbots
 
 | Feature              | Traditional Chatbot | ReAct Agent |
 | -------------------- | ------------------- | ----------- |
@@ -275,27 +275,27 @@ A ReAct agent focuses on **completing a task through reasoning and actions**.
 
 **------------**
 
-**## Challenges of ReAct Agents**
+## Challenges of ReAct Agents
 
 ReAct agents are powerful, but they also introduce challenges.
 
-**### Incorrect Tool Selection**
+### Incorrect Tool Selection
 
 The agent may choose the wrong tool for a task.
 
-**### Reasoning Errors**
+### Reasoning Errors
 
 The model may misunderstand the task or interpret a tool result incorrectly.
 
-**### Agent Loops**
+### Agent Loops
 
 The agent may repeatedly perform unnecessary actions.
 
-**### Cost and Latency**
+### Cost and Latency
 
 Multiple reasoning steps and tool calls can increase response time and LLM costs.
 
-**### Security**
+### Security
 
 Agents with powerful tools need proper authentication, authorization, permissions, and guardrails.
 
@@ -315,7 +315,7 @@ Execute     Reject
 
 **------------**
 
-**## Where Are ReAct Agents Useful?**
+## Where Are ReAct Agents Useful?
 
 ReAct-style agents are useful for:
 
@@ -341,7 +341,7 @@ They are especially useful when a task requires **multiple steps, external tools
 
 **------------**
 
-**## Conclusion**
+## Conclusion
 
 ReAct Agents combine **reasoning and acting** to make LLM applications more capable.
 
