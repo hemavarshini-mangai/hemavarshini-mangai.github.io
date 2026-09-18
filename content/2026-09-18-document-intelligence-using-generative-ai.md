@@ -4,8 +4,6 @@ Category: GenAI
 Tags: Document Intelligence, Generative AI, GenAI, LLM, OCR, Intelligent Document Processing, Multimodal AI, RAG, Document Automation, AI Agents
 Slug: document-intelligence-using-generative-ai
 
-# Document Intelligence Using Generative AI: Turning Unstructured Documents into Useful Knowledge
-
 Businesses generate and process huge amounts of documents every day. Invoices, receipts, contracts, reports, resumes, research papers, application forms, medical records, and scanned files all contain valuable information — but much of it is difficult to search, understand, and process automatically.
 
 Traditional document-processing systems usually depend on fixed templates, keyword matching, and rule-based extraction. These approaches work well when documents follow a predictable format, but they struggle when layouts, languages, tables, and writing styles change.
