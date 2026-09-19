@@ -1,350 +1,208 @@
 Title: Tokenization in LLMs: How AI Models Read Human Language
 Date: 2026-09-19
 Category: GenAI
-Tags: GenAI, Tokenization, LLM, LargeLanguageModels, NLP, MachineLearning, AI, Transformers, NaturalLanguageProcessing, AIEngineering
+Tags: GenAI, Tokenization, LLM, LargeLanguageModels, NLP, MachineLearning, Transformers, NaturalLanguageProcessing, AIEngineering
 Slug: tokenization-in-llms-how-ai-models-read-human-language
 
-An AI model can generate text, answer questions, write code, and summarize documents. But before a large language model can process human language, the text needs to be converted into a representation that the model can work with.
+Large language models do not read text exactly like humans. Before an LLM can process a sentence, the text is broken into smaller units called tokens.
 
-This process is called **tokenization**.
+This process is known as **tokenization**. It is one of the first steps that allows an LLM to convert human language into a format that can be processed by a neural network.
 
-Tokenization breaks text into smaller units called tokens and converts those tokens into numerical identifiers. These identifiers are then processed by the neural network to understand patterns and generate responses.
+Understanding tokenization is important because tokens affect context limits, API usage, prompt size, RAG systems, and the cost of running AI applications.
 
-Here's a concise reference to the key tokenization concepts every GenAI developer should understand.
+## What Is Tokenization?
 
-## Fundamentals of Tokenization
+**Tokenization** is the process of breaking text into smaller pieces called tokens.
 
-**Tokenization** — The process of breaking text into smaller units called tokens before passing it to a language model. A token can represent a complete word, part of a word, punctuation, whitespace, or another piece of text.
+For example, the sentence:
 
-**Token** — A token is a basic unit of text processed by an LLM. Depending on the tokenizer, a token can represent a word, subword, character sequence, number, punctuation mark, or special symbol.
+"Generative AI is powerful."
 
-**Token ID** — A numerical identifier assigned to a token in the tokenizer's vocabulary. Instead of directly processing the word "hello", the model receives a numerical ID representing the corresponding token.
+may be divided into pieces similar to:
 
-**Vocabulary** — The collection of tokens that a tokenizer can represent. Different models can have different vocabularies, meaning the same sentence can be divided into different tokens by different tokenizers.
+"Generative" + " AI" + " is" + " powerful" + "."
 
-## How Text Becomes Tokens
+The exact tokens depend on the tokenizer used by the model.
 
-**Text Splitting** — The tokenizer divides the input text into smaller pieces according to its tokenization algorithm. A common word may remain as one token, while an uncommon word may be divided into multiple pieces.
+A simplified process is:
 
-**Subword Tokenization** — Modern LLMs commonly use subword-based approaches that represent frequent words efficiently while breaking unfamiliar words into smaller reusable pieces.
+Text → Tokens → Token IDs → Model → Generated Tokens → Text
 
-**Encoding** — After text is split into tokens, each token is mapped to a numerical token ID. The resulting sequence becomes the input representation used by the model.
+## What Is a Token?
 
-**Decoding** — The reverse process converts token IDs back into readable text. During generation, predicted token IDs are progressively decoded into words, punctuation, spaces, and other text.
+A token is not always a complete word.
 
-## Why LLMs Use Tokens
+A token can represent:
 
-**Handling Large Vocabularies** — Representing every possible word as a separate vocabulary entry would require an extremely large vocabulary. Subword tokenization allows models to represent many words using combinations of reusable pieces.
+- A complete word.
+- Part of a word.
+- Punctuation.
+- A number.
+- Whitespace.
+- A programming symbol.
+- A special character.
 
-**Handling Unknown Words** — New names, technical terms, URLs, programming identifiers, and misspelled words may not exist as complete vocabulary entries. Subword tokenization allows these inputs to be represented using smaller known pieces.
+For example, a common word may be represented by one token, while a rare or technical word may be divided into multiple tokens.
 
-**Efficient Representation** — Frequently occurring text patterns can receive their own tokens, allowing common words or sequences to be represented efficiently.
+This is why:
 
-**Language Processing** — Tokenization provides a numerical representation that allows neural networks to perform mathematical operations on text.
+**1 word ≠ 1 token**
 
-## Example of Tokenization
+## Token IDs
 
-Consider the sentence:
+After text is divided into tokens, each token is converted into a numerical identifier called a **token ID**.
 
-```text
-Generative AI is changing software development.
-```
+A simplified example is:
 
-A tokenizer might split it into pieces similar to:
+Text → "AI is useful"
 
-```text
-["Generative", " AI", " is", " changing", " software", " development", "."]
-```
+Tokens → "AI", " is", " useful"
 
-The exact result depends on the tokenizer and the model being used.
+Token IDs → [1542, 318, 6721]
 
-The important point is that an LLM does not directly receive the sentence as ordinary human-readable text. The tokenizer converts the text into tokens, and those tokens are mapped to numerical IDs.
+These numbers are only examples. Actual token IDs depend on the tokenizer.
 
-A simplified pipeline looks like this:
+The model works with these numerical representations rather than directly processing the original text.
 
-```text
-Text
-  ↓
-Tokens
-  ↓
-Token IDs
-  ↓
-Embeddings
-  ↓
-Transformer
-  ↓
-Predicted Tokens
-  ↓
-Text
-```
+## Why Do LLMs Use Tokens?
 
-## Tokens Are Not the Same as Words
+Using tokens instead of complete words gives language models more flexibility.
 
-One of the most important concepts to understand is that **one token does not necessarily equal one word**.
+If every possible word had to be stored separately, the vocabulary would become extremely large.
 
-For example, a short and common word may be represented by a single token, while a longer or less common word may be divided into several tokens.
-
-Punctuation can also be represented as tokens, and spaces may be included as part of a token depending on the tokenizer.
-
-Therefore, counting words is not the same as counting tokens.
-
-A paragraph containing 100 words can contain a different number of tokens depending on the language, vocabulary, formatting, and tokenizer.
-
-## Subword Tokenization
-
-Subword tokenization is particularly important for modern language models.
-
-Consider a technical word such as:
-
-```text
-tokenization
-```
-
-Depending on the tokenizer, it could potentially be divided into pieces similar to:
-
-```text
-["token", "ization"]
-```
-
-A common word may be represented by one token, while an uncommon word may require multiple tokens.
-
-This approach allows LLMs to handle a large range of vocabulary without storing every possible word as a separate vocabulary entry.
-
-Some common tokenization approaches include:
-
-* **Byte Pair Encoding (BPE)** — Builds a vocabulary by repeatedly combining frequently occurring symbol or character sequences.
-* **WordPiece** — Uses subword units and was popularized by models such as BERT.
-* **Unigram** — Selects subword pieces using a probabilistic vocabulary model.
-
-Different LLM families can use different tokenizer implementations and vocabulary designs.
-
-## Tokenization and Context Windows
-
-Tokenization directly affects how much information an LLM can process.
-
-A model's context window is generally measured in **tokens**, rather than words or characters.
-
-For example, if a model supports a context window of 100,000 tokens, the relevant input and generated content must fit within the model's supported token budget.
-
-This makes tokenization particularly important when working with:
-
-* Long documents
-* Large prompts
-* Retrieval-Augmented Generation (RAG)
-* Conversation history
-* Source code
-* Large datasets
-
-More tokens generally mean more information can be included, but processing larger token sequences can also increase computational requirements and cost.
-
-## Tokenization and LLM Costs
-
-Many commercial LLM APIs calculate usage based partly on the number of input and output tokens.
-
-A simplified representation is:
-
-```text
-Input Tokens + Output Tokens = Total Token Usage
-```
-
-Suppose an application sends a large document to an LLM for every request. Even if the document contains useful information, repeatedly sending the entire document can result in unnecessary token usage.
-
-This is why GenAI applications often use techniques such as:
-
-* Prompt optimization
-* Context compression
-* Document chunking
-* Retrieval
-* Conversation summarization
-
-Reducing unnecessary context can make an application more efficient.
-
-Token usage can therefore affect both the technical performance and operating cost of an AI application.
-
-## Tokenization and Programming Code
-
-Tokenization is not limited to natural language.
-
-LLMs also process programming languages using tokens.
+Subword tokenization allows the model to represent unfamiliar words using smaller pieces.
 
 For example:
 
-```python
-def add(a, b):
-    return a + b
-```
+"unbelievable"
 
-The tokenizer may represent keywords, identifiers, punctuation, operators, spaces, and other pieces as tokens.
+could potentially be divided into:
 
-This is particularly important for coding assistants because programming syntax has different tokenization characteristics from ordinary English text.
+"un" + "believ" + "able"
 
-Long variable names, repeated code structures, symbols, indentation, and programming-specific syntax can all influence token usage.
+The exact division depends on the tokenizer.
 
-## Tokenization Across Languages
+This approach helps models handle new words, technical terms, names, and variations more efficiently.
 
-Token efficiency can vary significantly between languages.
+## Common Tokenization Methods
 
-A tokenizer designed around one language may represent another language using more tokens for approximately the same amount of semantic information.
+Several tokenization approaches are used in natural language processing.
 
-This matters for multilingual AI applications.
+**Byte Pair Encoding (BPE)** — Combines frequently occurring character or subword sequences to create reusable tokens.
 
-For example, an application supporting English, Tamil, Hindi, Japanese, and other languages should not assume that the same number of words always corresponds to the same number of tokens.
+**WordPiece** — Represents words using smaller subword units and is commonly associated with transformer-based models such as BERT.
 
-Tokenization efficiency depends on factors such as the tokenizer's vocabulary, language structure, writing system, and frequency of text patterns.
+**Unigram** — Uses a probabilistic approach to select suitable subword pieces.
 
-## Special Tokens
+Different models may use different tokenization methods.
 
-LLM systems can also use **special tokens** that do not represent ordinary words.
+## Tokenization and Context Windows
 
-These tokens can be used to represent concepts such as:
+LLM context windows are measured in tokens rather than simply words.
 
-* Start or end of a sequence
-* Separation between sections
-* Conversation roles
-* Padding
-* Special control instructions
+A model's context can include:
 
-The exact special tokens depend on the tokenizer and model.
+- System instructions.
+- User prompts.
+- Conversation history.
+- Retrieved documents.
+- Tool results.
 
-They help the model or surrounding system understand the structure of the input rather than only its textual content.
+For example:
 
-## Tokenization in a Transformer Pipeline
+System Instructions + User Prompt + Retrieved Information + Conversation History = Context
 
-Tokenization is one stage in a larger LLM processing pipeline.
+All of these contribute to token usage.
 
-A simplified workflow looks like this:
+This is especially important when working with long documents and AI agents.
 
-```text
-Human Text
-    ↓
-Tokenizer
-    ↓
-Token IDs
-    ↓
-Token Embeddings
-    ↓
-Transformer Layers
-    ↓
-Next-Token Prediction
-    ↓
-Generated Token IDs
-    ↓
-Decoder
-    ↓
-Human-Readable Text
-```
+## Tokenization and LLM Costs
 
-The tokenizer itself does not understand the meaning of the sentence. Its primary role is to convert text into units that can be represented numerically.
+Many LLM services calculate usage based on the number of input and output tokens.
 
-The transformer then processes those representations and learns relationships between tokens to predict what should come next.
+A simple representation is:
 
-## Example: Tokenization in a RAG Application
+Input Tokens + Output Tokens = Total Token Usage
 
-Imagine a RAG-based customer-support application that retrieves information from a 50-page product manual.
+For example, if an application sends 2,000 input tokens and receives 500 output tokens, the request processes 2,500 tokens.
 
-A simple implementation might send the entire document to the LLM for every question.
+The actual pricing depends on the model and service.
 
-This can result in unnecessary token usage.
+Reducing unnecessary context can therefore help control token usage.
 
-Instead, the system can follow a retrieval-based workflow:
+## Tokenization in RAG
 
-```text
-User Question
-      ↓
-Retrieve Relevant Chunks
-      ↓
-Build Context
-      ↓
-Send Relevant Context to LLM
-      ↓
-Generate Answer
-```
+Tokenization is also important in Retrieval-Augmented Generation systems.
 
-By retrieving only the relevant sections of a document, the application can reduce unnecessary context while still providing the model with the information required to answer the question.
+A typical RAG pipeline is:
 
-This is one reason tokenization knowledge is useful when designing production RAG systems.
+Documents → Chunking → Embeddings → Vector Database → Retrieval → LLM
 
-## Challenges in Tokenization
+Large documents are divided into smaller chunks before being stored and retrieved.
 
-Tokenization is powerful, but it also introduces several challenges.
+Token counts help developers decide how large those chunks should be and how much retrieved information can be placed into the final prompt.
 
-Common challenges include:
+## Tokenization in AI Agents
 
-* **Token Inflation:** Some languages, unusual words, source code, or formatting can require many tokens.
-* **Context Limitations:** Large inputs may exceed the model's available context window.
-* **Cost:** More tokens can increase API usage and computational costs.
-* **Language Differences:** The same amount of information can require different numbers of tokens across languages.
-* **Tokenizer Differences:** Different models can tokenize the same text differently.
-* **Special Characters:** URLs, emojis, mathematical notation, and unusual formatting can be divided into unexpected token sequences.
+AI agents can accumulate a large amount of context while performing tasks.
 
-Understanding these limitations helps developers design more efficient prompts, retrieval systems, and AI applications.
+An agent may receive:
 
-## Why Tokenization Matters for AI Engineers
+- User instructions.
+- Tool results.
+- Search results.
+- Database information.
+- Previous actions.
 
-Tokenization may appear to be a small preprocessing step, but it influences many parts of an LLM application.
+If all of this information is continuously added to the context, token usage can grow quickly.
 
-AI engineers should understand tokenization because it affects:
+Techniques such as summarization, context filtering, and selective memory can help control this growth.
 
-* **Context limits:** How much information can fit into a model request.
-* **API costs:** How many tokens are processed and generated.
-* **Latency:** Larger token sequences can require more computation.
-* **RAG design:** How documents should be chunked and retrieved.
-* **Prompt engineering:** How much context can be included efficiently.
-* **Model comparison:** Different models may use different tokenizers and vocabulary designs.
-* **Multilingual applications:** Token efficiency can vary significantly across languages.
+## Tokenization in Code
 
-A basic understanding of tokens therefore becomes increasingly valuable as AI applications move from simple experiments to production systems.
+LLMs also tokenize programming code.
 
-## Practical Example: Estimating Token Usage
+For example:
 
-Consider an application that sends this prompt:
+def calculate_total(price, quantity):
+    return price * quantity
 
-```text
-Summarize the following document and identify the three most important points.
-```
+The tokenizer may represent keywords, variable names, operators, punctuation, and other parts of the code as tokens.
 
-The tokenizer converts this text into a sequence of tokens before it reaches the model.
+This matters when building AI coding assistants because large source files can consume significant amounts of context.
 
-If a large document is appended to the prompt, the total token count increases:
+## Challenges of Tokenization
 
-```text
-System Instructions
-        +
-User Prompt
-        +
-Retrieved Context
-        +
-Conversation History
-        =
-Input Token Count
-```
+Tokenization introduces several practical challenges:
 
-If the application also generates a response, the output tokens are added to the overall usage.
+- Different models can tokenize the same text differently.
+- One word can require multiple tokens.
+- Different languages can have different token efficiency.
+- URLs and special characters can produce unexpected token counts.
+- Long conversations can consume large amounts of context.
+- Large prompts can increase usage and processing requirements.
 
-This is why production AI systems often monitor token counts for every request.
+Because of this, developers should measure actual token usage instead of relying only on word counts.
 
-## Tokenization Tools
+## Key Takeaways
 
-Developers can inspect tokenization behavior using tokenizer tools provided by model vendors and open-source libraries.
+The most important points about tokenization are:
 
-These tools can help answer questions such as:
-
-* How many tokens does my prompt contain?
-* How is a specific word divided?
-* Which parts of my document consume the most tokens?
-* Will this prompt fit within the model's context window?
-* How does token usage differ between models?
-
-Testing tokenization before deploying an application can help prevent unexpected context and cost problems.
+- Tokens are the basic text units processed by LLMs.
+- A token is not necessarily a complete word.
+- Tokenizers convert text into token IDs.
+- Different models can use different tokenizers.
+- Token counts affect context usage and application costs.
+- Tokenization is important for RAG, AI agents, and coding assistants.
 
 ## Conclusion
 
-Tokenization is one of the fundamental building blocks of modern large language models. It transforms human-readable text into smaller units that can be represented numerically and processed by neural networks.
+Tokenization is a fundamental part of how modern LLMs process human language.
 
-From tokens and token IDs to subword tokenization, context windows, and token-based usage, the tokenizer influences how efficiently an LLM can process information.
+It converts text into smaller units that can be represented numerically and processed by the model. These tokens influence everything from context windows and API usage to RAG chunking and AI agent memory.
 
-Understanding tokenization also helps developers make better decisions when designing prompts, RAG pipelines, coding assistants, multilingual applications, and other GenAI systems.
+Understanding tokens gives AI developers a clearer view of what happens between entering a prompt and receiving an LLM-generated response.
 
-Before an LLM can process relationships between words, concepts, and instructions, the text first needs to become tokens.
+In simple terms:
 
-**Tokenization is the bridge between human language and machine-readable representations.**
+**Humans communicate using language. LLMs process that language as tokens.**
