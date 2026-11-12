@@ -9,13 +9,19 @@ input,textarea,select,button{width:100%;box-sizing:border-box;font:inherit;paddi
 textarea{min-height:320px}
 .hidden{display:none}
 li{padding:10px 0;border-bottom:1px solid #ccc;cursor:pointer}
+.head{display:flex;align-items:center;gap:12px}
+.head img{width:56px;height:56px;border-radius:50%;object-fit:cover}
+.head h2{margin:0}
 </style></head><body>
-<h2>Blog Admin</h2>
+<div class="head">
+  <img src="/images/hemavarshini.jpeg" alt="Hema Varshini">
+  <h2>Blog Admin</h2>
+</div>
 <p id="msg"></p>
 
 <div id="login">
-  <input id="u" placeholder="Username" autocomplete="username">
-  <input id="p" type="password" placeholder="Password" autocomplete="current-password">
+  <input id="u" placeholder="Username" autocomplete="username" autocapitalize="none" autocorrect="off" spellcheck="false">
+  <input id="p" type="password" placeholder="Password" autocomplete="current-password" autocapitalize="none">
   <button onclick="login()">Log in</button>
 </div>
 
@@ -27,8 +33,10 @@ li{padding:10px 0;border-bottom:1px solid #ccc;cursor:pointer}
   </div>
   <h3 id="formTitle">New post</h3>
   <input id="title" placeholder="Title">
+  <input id="date" type="date">
   <input id="category" placeholder="Category (e.g. GenAI)">
   <input id="tags" placeholder="Tags, comma separated">
+  <input id="slug" placeholder="Slug (optional, e.g. my-first-post)" autocapitalize="none" autocorrect="off" spellcheck="false">
   <select id="status" class="hidden">
     <option value="ready">Ready (published)</option>
     <option value="draft">Draft (hidden)</option>
@@ -61,7 +69,7 @@ async function api(path, method = 'GET', body) {
 async function login() {
   try {
     say('Logging in... (can take a minute if the server was asleep)');
-    const d = await api('/login', 'POST', { username: $('u').value, password: $('p').value });
+    const d = await api('/login', 'POST', { username: $('u').value.trim(), password: $('p').value });
     token = d.token; role = d.role;
     sessionStorage.setItem('t', token); sessionStorage.setItem('r', role);
     say(''); show();
@@ -95,6 +103,8 @@ async function openPost(id) {
     editId = id;
     $('title').value = p.title; $('category').value = p.category;
     $('tags').value = p.tags; $('content').value = p.content;
+    $('date').value = p.date;
+    $('slug').value = p.slug; $('slug').disabled = true;
     $('status').value = p.status;
     $('status').classList.remove('hidden'); $('cancel').classList.remove('hidden');
     $('formTitle').textContent = 'Editing: ' + p.slug;
@@ -104,14 +114,16 @@ async function openPost(id) {
 
 function resetForm() {
   editId = null;
-  ['title', 'category', 'tags', 'content'].forEach(i => $(i).value = '');
+  ['title', 'category', 'tags', 'content', 'slug'].forEach(i => $(i).value = '');
+  $('slug').disabled = false;
+  $('date').value = new Date().toLocaleDateString('en-CA');
   $('status').classList.add('hidden'); $('cancel').classList.add('hidden');
   $('formTitle').textContent = 'New post';
 }
 
 async function save() {
-  const body = { title: $('title').value, category: $('category').value,
-                 tags: $('tags').value, content: $('content').value };
+  const body = { title: $('title').value, date: $('date').value, category: $('category').value,
+                 tags: $('tags').value, slug: $('slug').value.trim(), content: $('content').value };
   try {
     if (editId) { body.status = $('status').value; await api('/posts/' + editId, 'PUT', body); }
     else await api('/posts', 'POST', body);
@@ -124,6 +136,7 @@ async function save() {
   }
 }
 
+$('date').value = new Date().toLocaleDateString('en-CA');
 if (token) show();
 </script>
 </body></html>
