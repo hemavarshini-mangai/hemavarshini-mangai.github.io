@@ -24,6 +24,7 @@ PYGMENTS_STYLE_DARK = 'native'  # Dark mode
 
 # Static files
 STATIC_PATHS = ['images', 'extra']
+SITELOGO = '/images/hemavarshini.jpeg'
 
 EXTRA_PATH_METADATA = {
     'extra/admin/index.html': {'path': 'admin/index.html'},
