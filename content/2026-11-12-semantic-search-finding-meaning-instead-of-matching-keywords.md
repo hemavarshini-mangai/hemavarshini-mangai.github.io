@@ -1,5 +1,5 @@
 Title: Semantic Search: Finding Meaning Instead of Matching Keywords
-Date: 12 November 2026
+Date: 2026-11-12
 Category: GenAI
 Tags: GenAI, SemanticSearch, VectorSearch, Embeddings, NaturalLanguageProcessing, VectorDatabase, InformationRetrieval, RAG, LargeLanguageModels, AIEngineering
 Slug: semantic-search-finding-meaning-instead-of-matching-keywords
